@@ -1,12 +1,14 @@
 # enum_all_variants
 
-Proc macro for generating a list of all enum variants.
+Proc macro for generating impl Display for enums using serde_json
 
 ## Example
 ```rust
-use enum_all_variants::AllVariants;
+use enum_to_string::ToJsonString;
+use serde::Serialize;
 
-#[derive(AllVariants, Debug)]
+#[derive(Debug, Serialize, ToJsonString)]
+#[serde(rename_all = "SCREAMING_SNAKE_CASE")]
 enum Direction {
     Left,
     Top,
@@ -15,11 +17,11 @@ enum Direction {
 }
 
 fn main() {
-    println!("{:?}", Direction::all_variants());
+    println!("{}", Direction::Left.to_string()); 
 }
 ```
 
 Outputs:
 ```
-[Left, Top, Right, Bottom]
+LEFT
 ```
