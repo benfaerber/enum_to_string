@@ -1,0 +1,20 @@
+[package]
+name = "enum_to_string"
+version = "0.1.0"
+authors = ["Benjamin Faerber"]
+license = "MIT"
+edition = "2021"
+keywords = ["enum", "macro", "util"]
+description = "Generate a serialized string using the display trait easily"
+readme = "README.md"
+homepage = "https://github.com/benfaerber/enum_to_string"
+repository = "https://github.com/benfaerber/enum_to_string"
+
+[dependencies]
+quote = "1.0.33"
+serde = "1.0.188"
+serde_json = "1.0.107"
+syn = "2.0.38"
+
+[lib]
+proc-macro = true
